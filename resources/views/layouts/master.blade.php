@@ -40,14 +40,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @guest @yield('content') @else
     <div class="wrapper" id="app">
         <!-- Header -->
-    @include('layouts.header')
+   {{--  @include('layouts.header')--}}
         <!-- Sidebar -->
-    @include('layouts.sidebar') @yield('content')
+    @include('layouts.sidebar') {{-- @yield('content')
         <!-- Footer -->
-    @include('layouts.footer')
+    @include('layouts.footer')--}}
     </div>
     <!-- ./wrapper -->
-    @endguest @yield('javascript')
+     @endguest @yield('javascript')
     
 </body>
 </html>
