@@ -21,3 +21,5 @@ Create a database and inform .env
 * Flat Icons
 
 # More Updates Coming Soon
+
+# https://github.com/maddhatter/laravel-fullcalendar
