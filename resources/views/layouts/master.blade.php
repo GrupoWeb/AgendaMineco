@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
@@ -13,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>Laravel Starter</title>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('/dist/plugins/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -40,11 +37,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @guest @yield('content') @else
     <div class="wrapper" id="app">
         <!-- Header -->
-   {{--  @include('layouts.header')--}}
+     @include('Estructura.header')
         <!-- Sidebar -->
-    @include('layouts.sidebar') {{-- @yield('content')
+    @include('Estructura.sidebar')  @yield('content')
         <!-- Footer -->
-    @include('layouts.footer')--}}
     </div>
     <!-- ./wrapper -->
      @endguest @yield('javascript')
