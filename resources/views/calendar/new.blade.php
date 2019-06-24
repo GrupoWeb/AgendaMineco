@@ -25,7 +25,8 @@
                 <div class="card ">
                     <div class="card-header bg-info">Agendar Nuevo Evento</div>
                     <div class="card-body">
-                            {!! Form::open(['id'=>'form_contratos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
+                    <index-cliente></index-cliente>
+                            {{-- {!! Form::open(['id'=>'form_contratos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
                                         <div class="modal-body">
                                             
                                             <div class="form-group">
@@ -59,7 +60,7 @@
                                             <button type="submit" class="btn btn-primary" id="boton_editar_contrato"><i class="fa fa-save fa-lg mr-2"></i>Guardar información</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close fa-lg mr-2"></i>Cerrar</button>
                                         </div>
-                            {!! Form::close() !!}
+                            {!! Form::close() !!} --}}
                     </div>
                 </div>
           </div>
@@ -105,9 +106,7 @@
     <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/dist/js/demo.js') }}"></script>
-    <script>
-      $('#datetimepicker').datetimepicker({
-          format: 'yyyy-mm-dd hh:ii'
-      });
-    </script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    
+
 @stop

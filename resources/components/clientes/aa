@@ -1,0 +1,37 @@
+            <el-table
+                            v-loading="tableloading"
+                            element-loading-text="Cargando..."
+                            element-loading-spinner="el-icon-loading"
+                            :data="tableData.filter(data => !search || data.number.toLowerCase().includes(search.toLowerCase()))"
+
+                            border>
+                            <el-table-column
+                                sortable
+                                label="N° Documento"
+                                prop="number">
+                            </el-table-column>
+
+                            <el-table-column
+                                label="Nombres"
+                                sortable
+                                prop="name">
+                            </el-table-column>
+                            <el-table-column
+                                label="Apellidos"
+                                sortable
+                                prop="surnames">
+                            </el-table-column>
+                            <el-table-column
+                                align="center"
+                                label="Acciones">
+                                <template slot-scope="scope">
+                                    <el-button type="primary"  size="mini"
+                                               @click="Editar_rows(scope.$index, scope.row)" icon="el-icon-edit"></el-button>
+
+                                    <el-button
+                                        size="mini"
+                                        type="danger"
+                                        @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete"></el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
