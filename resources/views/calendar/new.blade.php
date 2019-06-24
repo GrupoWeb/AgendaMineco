@@ -27,26 +27,33 @@
                     <div class="card-body">
                             {!! Form::open(['id'=>'form_contratos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
                                         <div class="modal-body">
-                                            <h5><strong>Partida presupuestaria número 1</strong></h5>
+                                            
                                             <div class="form-group">
-                                                {!! Form::label('financiamiento_id','Fuente de financiamiento') !!}<span class="text-danger ml-1">*</span>
-                                                {!! Form::select('financiamiento_id', DB::table('financiamientos')->pluck('financiamiento','id'), null, ['class' => 'form-control', 'placeholder' => '', 'required']) !!}
+                                                {!! Form::label('Accion_id','Acción:') !!}<span class="text-danger ml-1">*</span>
+                                                {!! Form::textarea('Accion_id',null,array_merge(['class' => 'form-control'])) !!}
+                                                
                                             </div>
                                             <div class="form-group">
-                                                <label for="partida_presupuestaria">Partida presupuestaria número 1</label><span class="text-danger ml-1">*</span>
-                                                <input type="text" id="partida_presupuestaria" name="partida_presupuestaria" class="form-control" required>
+                                                {!! Form::label('resposable_id','Responsable:') !!}<span class="text-danger ml-1">*</span>
+                                                {!! Form::select('resposable_id', array(
+                                                      '0' => 'Seleccione una Opción',
+                                                      '1' => 'Ministro Acisclo Valladares', 
+                                                      '2' => 'Lic. Rolando del Cid',
+                                                      '3' => 'Viceministra Nora Torres',
+                                                      '4' => 'otros'
+                                                      )
+                                                      , '0', ['class' => 'form-control', 'placeholder' => '']) !!}
                                             </div>
                                             <br>
-                                            <h5><strong>Partida presupuestaria número 2 (Opcional)</strong></h5>
                                             <div class="form-group">
-                                                {!! Form::label('financiamiento2_id','Fuente de financiamiento número 2 ') !!}
-                                                {!! Form::select('financiamiento2_id', DB::table('financiamientos')->pluck('financiamiento','id'), null, ['class' => 'form-control', 'placeholder' => '']) !!}
+                                                <label for="partida_presupuestaria2">Fecha Final:</label>
+                                                <input type="text" value="2012-05-15 21:05" id="datetimepicker" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label for="partida_presupuestaria2">Partida presupuestaria número 2</label>
-                                                <input type="text" id="partida_presupuestaria2" name="partida_presupuestaria2" class="form-control">
-                                            </div>
-                                            <input type="hidden" id="contratista_id" name="contratista_id" value="{{$contratista->id}}">
+                                              <label for="partida_presupuestaria2">Observaciones:</label>
+                                              <input type="text" id="partida_presupuestaria2" name="partida_presupuestaria2" class="form-control">
+                                          </div>
+                                            <input type="hidden" id="contratista_id" name="contratista_id" >
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary" id="boton_editar_contrato"><i class="fa fa-save fa-lg mr-2"></i>Guardar información</button>
@@ -98,4 +105,9 @@
     <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/dist/js/demo.js') }}"></script>
+    <script>
+      $('#datetimepicker').datetimepicker({
+          format: 'yyyy-mm-dd hh:ii'
+      });
+    </script>
 @stop
