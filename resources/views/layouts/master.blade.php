@@ -31,6 +31,9 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Element.ui -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+        
 </head>
 
 <body class="hold-transition sidebar-mini">

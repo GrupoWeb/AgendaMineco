@@ -25,8 +25,8 @@
                 <div class="card ">
                     <div class="card-header bg-info">Agendar Nuevo Evento</div>
                     <div class="card-body">
-                    <index-cliente></index-cliente>
-                            {{-- {!! Form::open(['id'=>'form_contratos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
+                    {{-- <index-cliente></index-cliente> --}}
+                            {!! Form::open(['id'=>'form_contratos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
                                         <div class="modal-body">
                                             
                                             <div class="form-group">
@@ -48,7 +48,13 @@
                                             <br>
                                             <div class="form-group">
                                                 <label for="partida_presupuestaria2">Fecha Final:</label>
-                                                <input type="text" value="2012-05-15 21:05" id="datetimepicker" class="form-control">
+                                                <div class="input-group input-daterange">
+                                                    <input type="text" class="form-control" value="2012-04-05">
+                                                    <div class="input-group-addon">to</div>
+                                                    <input type="text" class="form-control" value="2012-04-19">
+                                                </div>
+                                          
+                                              
                                             </div>
                                             <div class="form-group">
                                               <label for="partida_presupuestaria2">Observaciones:</label>
@@ -60,7 +66,7 @@
                                             <button type="submit" class="btn btn-primary" id="boton_editar_contrato"><i class="fa fa-save fa-lg mr-2"></i>Guardar información</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close fa-lg mr-2"></i>Cerrar</button>
                                         </div>
-                            {!! Form::close() !!} --}}
+                            {!! Form::close() !!}
                     </div>
                 </div>
           </div>
@@ -106,7 +112,13 @@
     <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/dist/js/demo.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    
+<script>
+    $('.input-daterange input').each(function() {
+    $(this).datepicker('clearDates');
+});
+
+
+
+</script>
 
 @stop

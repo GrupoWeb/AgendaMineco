@@ -23,3 +23,5 @@ Create a database and inform .env
 # More Updates Coming Soon
 
 # https://github.com/maddhatter/laravel-fullcalendar
+
+# https://packagist.org/packages/eternicode/bootstrap-datepicker
