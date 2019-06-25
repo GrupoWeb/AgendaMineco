@@ -6,6 +6,7 @@
  */
 require('./bootstrap');
 
+
 window.Vue = require('vue');
 
 /**
@@ -14,10 +15,17 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/es'
+Vue.use(ElementUI, { locale });
 
+
+
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('data-component',require('./components/Datapicker/fecha.vue'))
 const app = new Vue({
-    el: '#app'
+    el: '#main'
 });
 
 

@@ -30,23 +30,23 @@ $(function () {
   // bootstrap WYSIHTML5 - text editor
   // $('.textarea').wysihtml5()
 
-  $('.daterange').daterangepicker({
-    ranges   : {
-      'Today'       : [moment(), moment()],
-      'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-      'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-      'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-      'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-      'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-    },
-    startDate: moment().subtract(29, 'days'),
-    endDate  : moment()
-  }, function (start, end) {
-    window.alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-  })
+  // $('.daterange').daterangepicker({
+  //   ranges   : {
+  //     'Today'       : [moment(), moment()],
+  //     'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+  //     'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+  //     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+  //     'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+  //     'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+  //   },
+  //   startDate: moment().subtract(29, 'days'),
+  //   endDate  : moment()
+  // }, function (start, end) {
+  //   window.alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+  // })
 
   /* jQueryKnob */
-  $('.knob').knob()
+  // $('.knob').knob()
 
   // jvectormap data
   var visitorsData = {
@@ -62,31 +62,31 @@ $(function () {
     'GB': 320, //Great Britain
     'RU': 3000 //Russia
   }
-  // World map by jvectormap
-  $('#world-map').vectorMap({
-    map              : 'world_mill_en',
-    backgroundColor  : 'transparent',
-    regionStyle      : {
-      initial: {
-        fill            : 'rgba(255, 255, 255, 0.7)',
-        'fill-opacity'  : 1,
-        stroke          : 'rgba(0,0,0,.2)',
-        'stroke-width'  : 1,
-        'stroke-opacity': 1
-      }
-    },
-    series           : {
-      regions: [{
-        values           : visitorsData,
-        scale            : ['#ffffff', '#0154ad'],
-        normalizeFunction: 'polynomial'
-      }]
-    },
-    onRegionLabelShow: function (e, el, code) {
-      if (typeof visitorsData[code] != 'undefined')
-        el.html(el.html() + ': ' + visitorsData[code] + ' new visitors')
-    }
-  })
+  // // World map by jvectormap
+  // $('#world-map').vectorMap({
+  //   map              : 'world_mill_en',
+  //   backgroundColor  : 'transparent',
+  //   regionStyle      : {
+  //     initial: {
+  //       fill            : 'rgba(255, 255, 255, 0.7)',
+  //       'fill-opacity'  : 1,
+  //       stroke          : 'rgba(0,0,0,.2)',
+  //       'stroke-width'  : 1,
+  //       'stroke-opacity': 1
+  //     }
+  //   },
+  //   series           : {
+  //     regions: [{
+  //       values           : visitorsData,
+  //       scale            : ['#ffffff', '#0154ad'],
+  //       normalizeFunction: 'polynomial'
+  //     }]
+  //   },
+  //   onRegionLabelShow: function (e, el, code) {
+  //     if (typeof visitorsData[code] != 'undefined')
+  //       el.html(el.html() + ': ' + visitorsData[code] + ' new visitors')
+  //   }
+  // })
 
   // Sparkline charts
   var myvalues = [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021]
