@@ -2,7 +2,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        Laravel Starter
+        Sistema de Agenda Electrónica
     </div>
     <div class="card">
         <div class="card-body login-card-body">
@@ -32,34 +32,34 @@
                     <div class="col-8">
                         <div class="checkbox icheck">
                             <label>
-                <input type="checkbox"> Remember Me
+                <input type="checkbox"> Recordarme
               </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
 
             <div class="social-auth-links text-center mb-3">
-                <p>- OR -</p>
+                <p>- O -</p>
                 <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook-f mr-2"></i> Sign in using Facebook
+          <i class="fab fa-facebook-f mr-2"></i> Ingresar usando Facebook
         </a>
                 <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus-g mr-2"></i> Sign in using Google+
+          <i class="fab fa-google-plus-g mr-2"></i> Ingresar usando Google+
         </a>
             </div>
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
-                <a href="#">I forgot my password</a>
+                <a href="#">Olvidé mi contraseña</a>
             </p>
             <p class="mb-0">
-                <a href="{{route('register')}}" class="text-center">Register a new membership</a>
+                <a href="{{route('register')}}" class="text-center">Registrar una nueva membresía</a>
             </p>
         </div>
         <!-- /.login-card-body -->

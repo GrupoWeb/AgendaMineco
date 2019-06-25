@@ -23,7 +23,8 @@ Vue.use(ElementUI, { locale });
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('data-component',require('./components/Datapicker/fecha.vue'))
+Vue.component('data-component',require('./components/ComponentesForm/DatePicker.vue'))
+Vue.component('textarea-component',require('./components/ComponentesForm/textArea.vue'))
 const app = new Vue({
     el: '#main'
 });

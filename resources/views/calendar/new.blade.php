@@ -7,63 +7,54 @@
             <div class="col-sm-6">
               <h1 class="m-0 text-dark">Agendar Eventos</h1>
             </div>
-            <!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="home">Home</a></li>
                   <li class="breadcrumb-item active">Eventos</li>
                 </ol>
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
       </div>
       
           <div class="container">
-                <div class="card ">
+                <div class="card border-shadow">
                     <div class="card-header bg-info">Agendar Nuevo Evento</div>
                     <div class="card-body">
-                    
-                            {!! Form::open(['id'=>'form_contratos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
-                                        <div class="modal-body">
-                                            
-                                            <div class="form-group">
-                                                {!! Form::label('Accion_id','Acción:') !!}<span class="text-danger ml-1">*</span>
-                                                {!! Form::textarea('Accion_id',null,array_merge(['class' => 'form-control'])) !!}
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                {!! Form::label('resposable_id','Responsable:') !!}<span class="text-danger ml-1">*</span>
-                                                {!! Form::select('resposable_id', array(
-                                                      '0' => 'Seleccione una Opción',
-                                                      '1' => 'Ministro Acisclo Valladares', 
-                                                      '2' => 'Lic. Rolando del Cid',
-                                                      '3' => 'Viceministra Nora Torres',
-                                                      '4' => 'otros'
-                                                      )
-                                                      , '0', ['class' => 'form-control', 'placeholder' => '']) !!}
-                                            </div>
-                                            <br>
-                                            <div class="form-group">                                 
-                                              <data-component></data-component> 
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="partida_presupuestaria2">Observaciones:</label>
-                                              <input type="text" id="partida_presupuestaria2" name="partida_presupuestaria2" class="form-control">
-                                          </div>
-                                            <input type="hidden" id="contratista_id" name="contratista_id" >
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary" id="boton_editar_contrato"><i class="fa fa-save fa-lg mr-2"></i>Guardar información</button>
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close fa-lg mr-2"></i>Cerrar</button>
-                                        </div>
-                            {!! Form::close() !!}
+                      {!! Form::open(['id'=>'form_eventos', 'method'=>'POST' , 'onsubmit' => 'event.preventDefault(); return false', 'autocomplete'=>'off']) !!}
+                        <div class="modal-body">   
+                            <div class="form-group">
+                                {!! Form::label('Accion_id','Acción:') !!}<span class="text-danger ml-1">*</span>
+                                <textarea-component></textarea-component> 
+                            </div>
+                            <div class="form-group">
+                              {!! Form::label('resposable_id','Responsable:') !!}<span class="text-danger ml-1">*</span>
+                              {!! Form::select('responsable_id', array(
+                                    '0' => 'Seleccione una Opción',
+                                    '1' => 'Ministro Acisclo Valladares', 
+                                    '2' => 'Lic. Rolando del Cid',
+                                    '3' => 'Viceministra Nora Torres',
+                                    '4' => 'otros'
+                                    )
+                                      , '0', ['class' => 'form-control', 'placeholder' => '']) !!}
+                            </div>
+                            <br>
+                            <div class="form-group">                                 
+                                <data-component></data-component> 
+                            </div>
+                            <div class="form-group">
+                              <label for="Dobservaciones">Observaciones:</label>
+                              {!! Form::textarea('Dobservaciones',null,['class' => 'form-control','rows' => 4]) !!}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="btn_guardar"><i class="fa fa-save fa-lg mr-2"></i>Guardar información</button>
+                        </div>
+                      {!! Form::close() !!}
+
                     </div>
                 </div>
-          </div>
-            
+          </div>    
   </div>
 @endsection
  
@@ -106,6 +97,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/dist/js/demo.js') }}"></script>
     <script src="{{ asset('/js/app.js') }}"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('/js/funciones.js') }}"></script>
+    <script>
+      addEvento('#form_eventos', '{{ url('addEventos') }}');
+    </script>
 
 @stop

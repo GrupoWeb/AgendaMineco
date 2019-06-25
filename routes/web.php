@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -24,3 +24,6 @@ Route::get('/Eventos','DashboardController@calendarEvent')->name('Eventos');
 // Route::get('/dashboard/v3', 'DashboardController@versionthree')->name('v3');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::post('addEventos','EventosController@AddEventos');
+Route::get('/calendario','CalendarController@index');

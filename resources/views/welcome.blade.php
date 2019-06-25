@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Bienvenidos al Sistema de Agenda
                 </div>
 
                 <div class="links">
