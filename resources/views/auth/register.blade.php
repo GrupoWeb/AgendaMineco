@@ -14,7 +14,7 @@
         <form action="{{ route('register') }}" method="post">
           @csrf
           <div class="input-group mb-3">
-            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Enter Your Full Name"
+            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Ingrese su nombre"
               required autofocus> @if ($errors->has('name'))
             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirmation Password" required>
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirmar Password" required>
             <div class="input-group-append">
               <span class="fa fa-lock input-group-text"></span> @if ($errors->has('password'))
               <span class="invalid-feedback" role="alert">
@@ -49,12 +49,12 @@
           </div>
           <div class="row">
             <div class="col-6">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
             </div>
             <!-- /.col -->
           </div>
         </form>
-
+{{-- 
         <div class="social-auth-links text-center">
           <p>- OR -</p>
           <a href="#" class="btn btn-block btn-primary">
@@ -65,9 +65,9 @@
               <i class="fab fa-google-plus-g mr-2"></i>
               Sign up using Google+
             </a>
-        </div>
+        </div> --}}
 
-        <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+        <a href="{{route('login')}}" class="text-center">Ya tengo una cuenta</a>
       </div>
       <!-- /.form-box -->
     </div>

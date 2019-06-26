@@ -44,7 +44,7 @@
                 </div>
             </form>
 
-            <div class="social-auth-links text-center mb-3">
+            {{-- <div class="social-auth-links text-center mb-3">
                 <p>- O -</p>
                 <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook-f mr-2"></i> Ingresar usando Facebook
@@ -52,7 +52,7 @@
                 <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus-g mr-2"></i> Ingresar usando Google+
         </a>
-            </div>
+            </div> --}}
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
