@@ -30,12 +30,12 @@
                 <div class="inner">
                   <h3>150</h3>
 
-                  <p>New Orders</p>
+                  <p>Eventos por mes</p>
                 </div>
                 <div class="icon">
-                  <i class="fas fa-shopping-cart"></i>
+                  {{-- <i class="fas fa-shopping-cart"></i> --}}
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -43,18 +43,18 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <h3>12</h3>
 
-                  <p>Bounce Rate</p>
+                  <p>Eventos Pendientes</p>
                 </div>
                 <div class="icon">
-                  <i class="fas fa-signal"></i>
+                  {{-- <i class="fas fa-signal"></i> --}}
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            {{-- <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
@@ -67,9 +67,9 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
-            </div>
+            </div> --}}
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            {{-- <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
@@ -81,7 +81,7 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
-            </div>
+            </div> --}}
           </div>
           <div class="row">
             <!-- Left col -->
