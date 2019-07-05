@@ -23,7 +23,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.2.0",
         "admin-lte": "^3.0.0-alpha.2",
-        "element-ui": "^2.9.2",
+        "element-ui": "^2.10.1",
         "moment": "^2.24.0",
         "node-sass": "^4.12.0",
         "sweetalert2": "^8.13.0"

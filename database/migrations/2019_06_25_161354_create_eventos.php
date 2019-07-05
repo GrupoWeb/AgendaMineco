@@ -17,8 +17,8 @@ class CreateEventos extends Migration
             $table->increments('id_evento');
             $table->string('accion');
             $table->integer('responsable');
-            $table->string('fecha_inicial');
-            $table->string('fecha_final');
+            $table->date('fecha_inicial');
+            $table->date('fecha_final');
             $table->string('observaciones');
             $table->integer('activo');
             $table->timestamps();

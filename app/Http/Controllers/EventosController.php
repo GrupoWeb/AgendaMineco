@@ -20,15 +20,13 @@ class EventosController extends Controller
             $Evento->save();
 
             print true;
-        } catch (\Throwable $th) {
-            print false;
-        }
-       
-
-        
-
-        
+        } catch (\Exception $th) { 
+            print $th;
+        }      
     }
 
+    public function showEvento(){
+        return view('Eventos.agenda');
+    }
     
 }

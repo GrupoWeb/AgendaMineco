@@ -4,12 +4,12 @@
             <span class="demonstration">Fecha de Evento:</span>
             <el-date-picker
             v-model="value1"
-            type="datetimerange"
+            type="daterange"
             range-separator="A"
             start-placeholder="Fecha Inicial"
             end-placeholder="Fecha Final"
             name="data1"
-            format="dd-MM-yyyy hh:mm"
+            format="yyyy-MM-dd"
             >
             </el-date-picker>
         </div>
