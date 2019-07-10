@@ -2,17 +2,21 @@
 
     <div  class="row">
         <div v-for="item in DataResult" :key="item.id_evento" class="card border-info mb-3" style="max-width: 18rem;">
-            <div class="card-header">Evento: {{ item.fecha_inicial }} / {{ item.fecha_final }} </div>
+            <div class="card-header">Evento: {{ item.fecha_final }} </div>
             <div class="card-body text-info">
-            <h5 class="card-title">{{ item.nombre }}</h5>
-            <p class="card-text">{{ item.accion }}</p>
+                <h5 class="card-title">{{ item.nombre }}</h5>
+                <p class="card-text">{{ item.accion }}</p>
             </div>
+
+            <div v-if="item.estado === 'En Proceso'" class="card-footer bg-success">{{ item.estado }}</div>
+            <div v-else class="card-footer bg-danger">{{ item.estado }}</div>
         </div>
     </div>
 </template>
 
 
 <style>
+
 
 </style>
 
@@ -50,7 +54,7 @@
               axios.get('/getEvento')
                 .then(response => {
                   contexto.DataResult = response.data;
-                  console.log(contexto.DataResult);
+                  
                 })
                 .catch(function (error) {
                   // handle error

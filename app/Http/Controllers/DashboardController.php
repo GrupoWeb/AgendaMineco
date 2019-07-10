@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request; 
 use App\EventosModel;
+use App\estado;
 class DashboardController extends Controller
 {
     public function index()
@@ -28,15 +29,21 @@ class DashboardController extends Controller
     }
 
     public function getEventos(){
-        $data = EventosModel::selectraw('accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final')
+        $data = EventosModel::selectraw('accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final,estado')
                                 ->join('responsables','eventos.responsable','=','responsables.id_Responsable')
                                 ->where('eventos.activo','=',1)
                                 ->get();
-        //print $buson;
+        //print $data;
         return response()->json($data);
     }
    
     public function calendarEvent(){
-        return view('calendar.new');
+
+        $estado = estado::all();
+
+    
+        return view('calendar.new',[
+            'estado' => $estado
+        ]);
     }
 }

@@ -1,18 +1,22 @@
 <template>
-
-        <div class="block" >
-            <span class="demonstration">Fecha de Evento:</span>
+<div class="row">
+        
+            <span class="demonstration">Fecha Límite:</span>
             <el-date-picker
             v-model="value1"
-            type="daterange"
+            type="date"
             range-separator="A"
             start-placeholder="Fecha Inicial"
             end-placeholder="Fecha Final"
-            name="data1"
+            name="fecha"
             format="yyyy-MM-dd"
             >
             </el-date-picker>
-        </div>
+        <span class="demonstration">Estado: </span>
+        <el-select name="idestado" class="vue-select" v-model="select2" placeholder="Estado" >
+           <el-option v-for="(item,idx) in estado" :key="idx" :label=" item.nombre " :value=" item.id "></el-option>
+        </el-select>
+</div>
 </template>
 
 <style>
@@ -24,6 +28,8 @@
     }
     .demonstration, .el-range-separator{
       font-weight: bold;
+      padding-right: 10px;
+      padding-left: 5px;
     }
     
 </style>
@@ -31,6 +37,7 @@
 
 <script>
   export default {
+    props: ['estado'],
     data() {
       return {
         pickerOptions: {
@@ -40,7 +47,7 @@
           
         },
         value1: '',
-        value2: '',
+        select2: 'Seleccione una Opción',
         
       };
      

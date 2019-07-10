@@ -21,6 +21,7 @@ class CreateEventos extends Migration
             $table->date('fecha_final');
             $table->string('observaciones');
             $table->integer('activo');
+            $table->integer('estado');
             $table->timestamps();
         });
     }

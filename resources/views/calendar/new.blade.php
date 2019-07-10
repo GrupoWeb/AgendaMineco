@@ -40,10 +40,11 @@
                             </div>
                             <br>
                             <div class="form-group">                                 
-                                <data-component></data-component> 
+                              <data-component :estado='{{ $estado }}'></data-component> 
+                                
                             </div>
                             <div class="form-group">
-                              <label for="Dobservaciones">Observaciones:</label>
+                              <label for="Dobservaciones">Anotaciones:</label>
                               {!! Form::textarea('Dobservaciones',null,['class' => 'form-control','rows' => 4]) !!}
                             </div>
                         </div>
