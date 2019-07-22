@@ -1,71 +1,112 @@
 <template >
+  <div >
+    <div  v-for="(inbox, inb) of Responsable" :key="inb">
+        <h1 class="m-0 text-dark">{{ inbox.nombre}}</h1>
 
-    <div  class="row">
-        <div v-for="item in DataResult" :key="item.id_evento" class="card border-info mb-3" style="max-width: 18rem;">
-            <div class="card-header">Evento: {{ item.fecha_final }} </div>
-            <div class="card-body text-info">
-                <h5 class="card-title">{{ item.nombre }}</h5>
-                <p class="card-text">{{ item.accion }}</p>
-            </div>
-
-            <div v-if="item.estado === 'En Proceso'" class="card-footer bg-success">{{ item.estado }}</div>
-            <div v-else class="card-footer bg-danger">{{ item.estado }}</div>
+        <el-row :gutter="25" justify="center"  >
+            <el-col :span="6"   type="flex" v-for="(mensaje,ms) of DataResult" :key="ms" v-if="mensaje.nombre == inbox.nombre">
+                <el-card  class="box-card" shadow="always" body-style="cars">
+                <div slot="header" class="clearfix">
+                    <span>{{ mensaje.nombre }}</span>
+                    <el-button style="float: right" class="shadow" type="success" icon="el-icon-check" circle></el-button>
+                    
+                </div>
+                <div class="card-text item">
+                    Fecha: {{ mensaje.fecha_final }} <br>
+                    Evento: {{ mensaje.accion }}
+                </div>
+                <div  v-if="mensaje.estado === 'En Proceso'" class="clearfix card-footer bg-success">{{ mensaje.estado }}</div>
+                    <div v-else class="card-footer bg-danger">{{ mensaje.estado }}</div>
+                </el-card>
+            </el-col>
+        </el-row>
+    </div> 
+    
+<!-- 
+    <div class="row">
+      <div
+        v-for="item in DataResult"
+        :key="item.id_evento"
+        class="card border-info mb-3"
+        style="max-width: 18rem;"
+      >
+        <div class="card-header">Evento: {{ item.fecha_final }}</div>
+        <div class="card-body text-info">
+          <h5 class="card-title">{{ item.nombre }}</h5>
+          <p class="card-text">{{ item.accion }}</p>
         </div>
-    </div>
+
+        <div v-if="item.estado === 'En Proceso'" class="card-footer bg-success">{{ item.estado }}</div>
+        <div v-else class="card-footer bg-danger">{{ item.estado }}</div>
+      </div>
+    </div> -->
+  </div>
 </template>
 
 
 <style>
+.el-card__body{
 
+    padding:0px;
+}
 
+.item{
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+}
+
+.el-col{
+    padding-bottom: 20px;
+}
 </style>
 
 <script >
-    export default {
-       
-        data() {
-            return {
-                DataResult:[],
-            }
-        },
-        mounted(){
-            this.getData(); 
-//             console.log(
-//         'outside nextTick callback:', this.$el.textContent
-//             ) ;
-//             this.$nextTick(() => {
-//     // The whole view is rendered, so I can safely access or query
-//     // the DOM. ¯\_(ツ)_/¯
-//   });
-            setInterval(() => {
-                  this.getData();
-              }, 3000);
-          },
-        observable(){
-            this.DataResult; 
-            
-        },
-        methods: {
-            nextTick:function () {
-                this.getData();
-                },
-            getData: function(){
-                let contexto = this;
-              axios.get('/getEvento')
-                .then(response => {
-                  contexto.DataResult = response.data;
-                  
-                })
-                .catch(function (error) {
-                  // handle error
-                  console.log(error);
-                })
-                .finally(function () {
-                  // always executed
-                });
-            },
-            
-         },
-         
+export default {
+  data() {
+    return {
+      DataResult: [],
+      Responsable:[]
+    };
+  },
+  mounted() {
+    this.getData();
+    this.getResponsable();
+    setInterval(() => {
+      this.getData();
+      this.getResponsable();
+    }, 3000);
+  },
+  observable() {
+    this.DataResult;
+  },
+  methods: {
+    nextTick: function() {
+      this.getData();
+    },
+    getData: function() {
+      let contexto = this;
+      axios
+        .get("/getEvento")
+        .then(response => {
+          contexto.DataResult = response.data;
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        })
+        .finally(function() {
+          // always executed
+        });
+    },
+    getResponsable: function(){
+        axios.get('getDataR')
+        .then(res =>{
+            this.Responsable = res.data;
+        })
+        .catch(function(error){
+            console.log(error);
+        })
     }
+  }
+};
 </script>

@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request; 
 use App\EventosModel;
 use App\estado;
+use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index()
     {
 
-        $data = EventosModel::selectraw('accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final')
+            $data = EventosModel::selectraw('accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final')
                                 ->join('responsables','eventos.responsable','=','responsables.id_Responsable')
                                 ->where('eventos.activo','=',1)
                                 ->get();
@@ -25,25 +31,25 @@ class DashboardController extends Controller
         //                     ->where('NAME_TEMPLATE_CBA.id',$id)
         //                     ->get();
 
-        return view('dashboard.home');
+        return view('dashboard.home'); 
     }
 
     public function getEventos(){
         $data = EventosModel::selectraw('accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final,estado')
                                 ->join('responsables','eventos.responsable','=','responsables.id_Responsable')
                                 ->where('eventos.activo','=',1)
+                                ->where('eventos.estado','=','En Proceso')
                                 ->get();
         //print $data;
         return response()->json($data);
     }
    
     public function calendarEvent(){
-
         $estado = estado::all();
 
     
         return view('calendar.new',[
-            'estado' => $estado
+            'estado' => $estado,
         ]);
     }
 }

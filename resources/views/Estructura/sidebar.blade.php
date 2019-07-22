@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-nav">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
     <img src="{{ asset('/imgAgenda/logo.png') }}"  class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -14,16 +14,16 @@
               <a href="#" class="d-block"> {{ auth()->user()->name!=null ? auth()->user()->name : "Administrator" }} </a>
           </div>
       </div>
-      <nav class="mt-2 ">
+      <nav class="mt-2 sidebar-nav">
           <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                   <a href="calendario" class="nav-link">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
                       Calendario
                     </p>
                   </a>
-              </li>
+              </li> --}}
               <li class="nav-item has-treeview">
                   <a href="#" class="nav-link">
                     <i class="nav-icon fa fa-list-alt" aria-hidden="true"></i>
@@ -40,6 +40,14 @@
                         </a>
                     </li>
                 </ul>
+              </li>
+              <li class="nav-item">
+                  <a href="bandeja" class="nav-link">
+                      <i class="nav-icon fa fa-th"></i>
+                      <p>
+                        Puntos Registrados
+                      </p>
+                    </a>
               </li>
           </ul>
       </nav>

@@ -1,23 +1,26 @@
 @extends('layouts.master') 
 @section('content')
-  <div class="content-wrapper card" >
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            
-            <div class="col-sm-12">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="home">Home</a></li>
-                  <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </div>
-          </div>
-        </div>
+  <div class="content-wrapper"> 
+        <div class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                          <li class="breadcrumb-item"><a href="home">Home</a></li>
+                          <li class="breadcrumb-item active">Agenda</li>
+                        </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      <div class="container-fluid col-11 col-lg-11 col-sm-11 col-xl-11">
+          <table-componet ></table-componet>  
       </div>
-      <div class="card-body">
-            <evento-component></evento-component>
-      </div>
-  </div>
+      <br>         
+</div>
 @endsection
  
 @section('javascript')
@@ -32,8 +35,8 @@
     <!-- Bootstrap 4 -->
     <script src="{{ asset('/dist/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Morris.js charts -->
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="{{ asset('/dist/plugins/morris/morris.min.js') }}"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script> --}}
+    {{-- <script src="{{ asset('/dist/plugins/morris/morris.min.js') }}"></script> --}}
     <!-- Sparkline -->
     <script src="{{ asset('/dist/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
     <!-- jvectormap -->
@@ -43,12 +46,12 @@
     {{-- <script src="{{ asset('/dist/plugins/knob/jquery.knob.js') }}"></script> --}}
     <!-- daterangepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    {{-- <script src="{{ asset('/dist/plugins/daterangepicker/daterangepicker.js') }}"></script>
+    {{-- <script src="{{ asset('/dist/plugins/daterangepicker/daterangepicker.js') }}"></script> --}}
     <!-- datepicker -->
-    <script src="{{ asset('/dist/plugins/datepicker/bootstrap-datepicker.js') }}"></script> --}}
+    {{-- <script src="{{ asset('/dist/plugins/datepicker/bootstrap-datepicker.js') }}"></script> --}}
     <!-- Bootstrap WYSIHTML5 -->
-    {{-- <script src="{{ asset('/dist/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-    <!-- Slimscroll --> --}}
+    {{-- <script src="{{ asset('/dist/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script> --}}
+    <!-- Slimscroll -->
     <script src="{{ asset('/dist/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
     <!-- FastClick -->
     <script src="{{ asset('/dist/plugins/fastclick/fastclick.js') }}"></script>
@@ -59,10 +62,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/dist/js/demo.js') }}"></script>
     <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('/js/funciones.js') }}"></script>
     <script>
-      
-        
+      addEvento('#form_eventos', '{{ url('addEventos') }}');
     </script>
-@stop
 
-{{-- Eventos --}}
+@stop

@@ -12,8 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    // if (Auth::check()) {
+    //     // The user is logged in...
+    //     return redirect()->intended('/home');
+        
+    // }else{
+        return view('auth.login');
+    
 });
+
+
+
+
+
 
 Auth::routes();
 
@@ -23,10 +34,13 @@ Route::get('/Eventos','DashboardController@calendarEvent')->name('Eventos');
 Route::get('getEvento','DashboardController@getEventos');
 // Route::get('/dashboard/v2', 'DashboardController@versiontwo')->name('v2');
 // Route::get('/dashboard/v3', 'DashboardController@versionthree')->name('v3');
-
+Route::get('getData','EventosController@getDataEventos');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
 Route::post('addEventos','EventosController@AddEventos');
 Route::get('/calendario','CalendarController@index');
-
 Route::get('evento','EventosController@showEvento');
+
+//Bandeja
+Route::get('bandeja','EventosController@showBandeja');
+Route::get('getDataR','EventosController@getResponsables');
+//--------------------

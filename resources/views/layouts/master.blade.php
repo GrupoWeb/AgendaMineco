@@ -39,16 +39,18 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-    @guest @yield('content') @else
-    <div class="wrapper" id="main">
-        <!-- Header -->
-     @include('Estructura.header')
-        <!-- Sidebar -->
-    @include('Estructura.sidebar')  @yield('content')
-        <!-- Footer -->
-    </div>
-    <!-- ./wrapper -->
-     @endguest @yield('javascript')
-    
-</body>
+        @guest @yield('content') @else
+        <div class="wrapper" id="main">
+            <!-- Header -->
+         @include('Estructura.header')
+            <!-- Sidebar -->
+        @include('Estructura.sidebar')  @yield('content')
+            <!-- Footer -->
+        </div>
+        <!-- ./wrapper -->
+         @endguest @yield('javascript')
+        
+    </body>
 </html>
+
+
