@@ -6,6 +6,8 @@ use App\EventosModel;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\messages;
 
 class EventosController extends Controller
 {
@@ -24,6 +26,7 @@ class EventosController extends Controller
             $Evento->observaciones  = $request->Dobservaciones;
             $Evento->activo  = 1;
             $Evento->estado = 1;
+            $Evento->archivo= "";
             $Evento->save();
 
             print true;
@@ -55,11 +58,35 @@ class EventosController extends Controller
         return response()->json($query);
     }
 
+    public function getDataResponsable(){
+        $responsable = DB::table('responsables')
+                            ->select('id_Responsable','nombre')
+                            ->get();
 
-    public function edit(){
+        return response()->json($responsable);
+    }
 
-        return view('Eventos.edit');
+    public function edit($id){
+        $user = $this->userLoginId();
+        
+        return view('Eventos.edit',[
+         'id' => $id,
+         'idUser' => $user
+         ]);
     } 
+
+    public function searchEvento($id){
+        
+        $query = EventosModel::join('responsables','responsable','=','id_Responsable')
+                            ->select('accion','responsables.nombre as responsable','eventos.created_at','observaciones')
+                            ->where('id_evento','1')->get();
+
+        return response()->json($query);
+    }
+
+    public function chat($id){
+        return view('Eventos.chat');
+    }
 
     public function showEvento(){
         return view('Eventos.agenda');
@@ -69,5 +96,46 @@ class EventosController extends Controller
         return view('bandeja.bandeja');
     }
 
-    
+    public function userLoginId(){
+        $user = Auth::user()->id;
+        return $user;
+    }
+    public function getMessages($id){       
+        $message = messages::all();
+
+        return response()->json($message);
+    }
+
+    public function addMessageData(Request $request){
+        $Mensajes = new messages;
+
+        $Mensajes->message = $request->message;
+        $Mensajes->user_id = $request->id_user;
+        $Mensajes->evento_id = $request->id_evento;
+
+        $Mensajes->save();
+    }
+
+    public function uploadfile(Request $request){
+        if(!$request->hasFile('file')){
+           return response()->json([
+               'error' => 'No File Uploaded'
+           ]);
+        }
+
+       $file = $request->file('file');
+
+       if(!$file->isValid()){
+           return response()->json([
+               'error' => 'File is not valid!'
+           ]);
+        }
+
+     $path=  $file->store('public/images');
+
+     //dd($path);
+       return response()->json([
+           'success' => $path
+       ]);
+    }
 }

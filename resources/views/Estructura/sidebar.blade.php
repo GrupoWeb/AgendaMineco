@@ -34,7 +34,7 @@
                   </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="Eventos" class="nav-link">
+                        <a href="../Eventos" class="nav-link">
                           <i class="fa fa-circle-o nav-icon"></i>
                           <p>Agendar</p>
                         </a>
@@ -42,10 +42,18 @@
                 </ul>
               </li>
               <li class="nav-item">
-                  <a href="bandeja" class="nav-link">
+                  <a href="../bandeja" class="nav-link">
                       <i class="nav-icon fa fa-th"></i>
                       <p>
                         Puntos Registrados
+                      </p>
+                    </a>
+              </li>
+              <li class="nav-item">
+                  <a href="../home" class="nav-link">
+                      <i class="nav-icon fa fa-th"></i>
+                      <p>
+                        Home
                       </p>
                     </a>
               </li>

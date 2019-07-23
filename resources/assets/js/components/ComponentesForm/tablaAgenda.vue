@@ -2,6 +2,9 @@
       <el-card class="box-card">
     <div slot="header" class="clearfix">
       <span>Puntos Registrados</span>
+      <el-link style="float: right;" href="../Eventos">
+        <el-button  type="primary" plain>Nuevo</el-button>
+      </el-link>
     </div>
     <el-table
         :data="DataResult.slice((currentPage-1)*pagesize,currentPage*pagesize)"

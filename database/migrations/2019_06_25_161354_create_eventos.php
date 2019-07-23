@@ -22,6 +22,7 @@ class CreateEventos extends Migration
             $table->string('observaciones');
             $table->integer('activo');
             $table->integer('estado');
+            $table->string('archivo');
             $table->timestamps();
         });
     }

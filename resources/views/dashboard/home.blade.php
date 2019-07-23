@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="card-body">
+      <div class="container-fluid col-11 col-lg-11 col-sm-11 col-xl-11">
             <evento-component></evento-component>
       </div>
   </div>

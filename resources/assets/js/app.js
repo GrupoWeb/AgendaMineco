@@ -29,6 +29,7 @@ Vue.component('table-componet',require('./components/ComponentesForm/tablaAgenda
 Vue.component('notificacion-component',require('./components/mensajesInbox/notificacionesAgenda.vue'))
 Vue.component('editar-component',require('./components/ComponentesForm/DataEdit.vue'))
 Vue.component('evento-component',require('./components/evento/eventos.vue'))
+Vue.component('chat-component',require('./components/evento/chat.vue'))
 const app = new Vue({
     el: '#main'
 });

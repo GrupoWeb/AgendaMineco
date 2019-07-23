@@ -19,9 +19,12 @@
                     Evento: {{ mensaje.accion }}
                 </div>
                 <div  v-if="mensaje.estado === 'En Proceso'" class="clearfix card-footer bg-info">{{ mensaje.estado }} 
-                    <el-link style="float: right;margin-left:23%;" :underline=false v-bind:href="'editMensaje/'+mensaje.id_evento" :id=mensaje.id_evento >
-                      <el-button  class="shadow" type="primary" plain size="mini">Editar</el-button>
+                    <el-link style="padding-left:23%;" :underline=false v-bind:href="'editMensaje/'+mensaje.id_evento" :id=mensaje.id_evento >
+                      <el-button  class="shadow" type="primary" plain size="mini">Documentar</el-button>
                     </el-link>
+                    <!-- <el-link style="padding-left:1%;" :underline=false v-bind:href="'chat/'+mensaje.id_evento" :id=mensaje.id_evento >
+                      <el-button  class="shadow" type="primary" plain size="mini">Chat</el-button>
+                    </el-link> -->
                 </div>
                 <div v-else class="card-footer bg-danger">{{ mensaje.estado }} <span>Editar</span></div>
                 </el-card>

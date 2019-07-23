@@ -1,6 +1,6 @@
 <template>
     <el-badge :value=total class="item">
-        <el-link href="bandeja">
+        <el-link href="../bandeja">
             <el-button size="small">Puntos Agenda</el-button>
         </el-link>
     </el-badge>
