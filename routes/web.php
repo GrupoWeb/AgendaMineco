@@ -17,7 +17,7 @@ Route::get('/', function () {
     //     return redirect()->intended('/home');
         
     // }else{
-        return view('auth.login');
+        return view('auth.login'); 
     
 });
 
@@ -43,4 +43,5 @@ Route::get('evento','EventosController@showEvento');
 //Bandeja
 Route::get('bandeja','EventosController@showBandeja');
 Route::get('getDataR','EventosController@getResponsables');
+Route::get('editMensaje/{id}','EventosController@edit');
 //--------------------

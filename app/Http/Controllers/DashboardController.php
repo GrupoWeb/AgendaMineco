@@ -35,10 +35,11 @@ class DashboardController extends Controller
     }
 
     public function getEventos(){
-        $data = EventosModel::selectraw('accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final,estado')
+        $data = EventosModel::selectraw('id_evento,accion,responsables.nombre,DATE_FORMAT(fecha_inicial, "%d-%m-%Y") as fecha_inicial,DATE_FORMAT(fecha_final, "%d-%m-%Y") as fecha_final,estados.nombre as estado')
+                                ->join('estados','estado','=','id')
                                 ->join('responsables','eventos.responsable','=','responsables.id_Responsable')
                                 ->where('eventos.activo','=',1)
-                                ->where('eventos.estado','=','En Proceso')
+                                ->where('eventos.estado','=',1)
                                 ->get();
         //print $data;
         return response()->json($data);

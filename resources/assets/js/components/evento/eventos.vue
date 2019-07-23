@@ -1,6 +1,6 @@
 <template >
   <div >
-    <div  v-for="(inbox, inb) of Responsable" :key="inb">
+    <div  v-for="(inbox, inb) of Responsable" :key="inb" >
         <h1 class="m-0 text-dark">{{ inbox.nombre}}</h1>
 
         <el-row :gutter="25" justify="center"  >
@@ -8,15 +8,22 @@
                 <el-card  class="box-card" shadow="always" body-style="cars">
                 <div slot="header" class="clearfix">
                     <span>{{ mensaje.nombre }}</span>
-                    <el-button style="float: right" class="shadow" type="success" icon="el-icon-check" circle></el-button>
-                    
+                    <!-- <template slot-scope="scope"> -->
+                      <!-- <el-link :underline=false v-bind:href="'/editMensaje/'+mensaje.id_evento" :id=mensaje.id_evento >
+                        <el-button style="float: right" class="shadow" type="success" icon="el-icon-check" circle ></el-button>
+                      </el-link> -->
+                    <!-- </template> -->
                 </div>
                 <div class="card-text item">
                     Fecha: {{ mensaje.fecha_final }} <br>
                     Evento: {{ mensaje.accion }}
                 </div>
-                <div  v-if="mensaje.estado === 'En Proceso'" class="clearfix card-footer bg-success">{{ mensaje.estado }}</div>
-                    <div v-else class="card-footer bg-danger">{{ mensaje.estado }}</div>
+                <div  v-if="mensaje.estado === 'En Proceso'" class="clearfix card-footer bg-info">{{ mensaje.estado }} 
+                    <el-link style="float: right;margin-left:23%;" :underline=false v-bind:href="'editMensaje/'+mensaje.id_evento" :id=mensaje.id_evento >
+                      <el-button  class="shadow" type="primary" plain size="mini">Editar</el-button>
+                    </el-link>
+                </div>
+                <div v-else class="card-footer bg-danger">{{ mensaje.estado }} <span>Editar</span></div>
                 </el-card>
             </el-col>
         </el-row>
@@ -71,6 +78,7 @@ export default {
   mounted() {
     this.getData();
     this.getResponsable();
+    this.Calcular();
     setInterval(() => {
       this.getData();
       this.getResponsable();
@@ -106,6 +114,9 @@ export default {
         .catch(function(error){
             console.log(error);
         })
+    },
+    Calcular: function(){
+      //console.log(this.Responsable);
     }
   }
 };
