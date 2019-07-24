@@ -39,7 +39,8 @@
               <el-form-item label="Archivo:">
                 <el-upload
                   class="upload-demo"
-                  :action="'upload/'"
+                  action="/upload"
+                  name="file[]"
                   :headers="{ 'X-CSRF-TOKEN': csrf}"
                   :on-preview="handlePreview"
                   :on-remove="handleRemove"
@@ -341,7 +342,15 @@ export default {
         });
     },
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      let vm = this
+        axios.delete('/upload/' + file.uid)
+            .then(function () {
+                let index = _.findIndex(vm.fileList, ['uid', file.uid])
+                vm.$delete(vm.fileList, index)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     },
     handlePreview(file) {
       console.log(file);
@@ -354,7 +363,26 @@ export default {
       );
     },
     cargaSuccess(response, file, fileList) {
-      console.log(file.name);
+      let id_fila = ''
+      var vm = this
+        _.map(response, function (data) {
+            file['uid'] = data
+            
+        })
+        vm.fileList = fileList;
+      
+      var url = "/Uploadfile";
+      axios
+        .post(url, {
+          id_evento: this.id,
+          id_file: file.uid
+        })
+        .then(response => {
+          this.$message.success(`Documento Cargado`);
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
     },
     submitForm2 () { 
       this.loading = true 

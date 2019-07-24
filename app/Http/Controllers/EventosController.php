@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\messages;
+use App\Upload;
 
 class EventosController extends Controller
 {
@@ -117,25 +118,21 @@ class EventosController extends Controller
     }
 
     public function uploadfile(Request $request){
-        if(!$request->hasFile('file')){
-           return response()->json([
-               'error' => 'No File Uploaded'
-           ]);
-        }
+        $modelUpload = Upload::find($request->id_file);
 
-       $file = $request->file('file');
+        $modelUpload->evento_id = $request->id_evento;
 
-       if(!$file->isValid()){
-           return response()->json([
-               'error' => 'File is not valid!'
-           ]);
-        }
+        $modelUpload->save();
 
-     $path=  $file->store('public/images');
+        //dd($request->id_file)
+;
+        //$uploadData = Upload::find(1);
 
-     //dd($path);
-       return response()->json([
-           'success' => $path
-       ]);
+        //$uploadData->comments()->save($modelUpload);
+
+
+        //dd($uploadData);
     }
+
+    
 }

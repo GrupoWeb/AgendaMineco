@@ -18,9 +18,22 @@ window.Vue = require('vue');
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/es'
+import VueRouter from 'vue-router'
+
+
+Vue.use(VueRouter);
 Vue.use(ElementUI, { locale });
 
 
+const routes = [
+    {
+        path: '/editar', component: require('./components/ComponentesForm/DataEdit.vue')
+    }
+]
+
+const router = new Vue({
+    routes
+}) 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('data-component',require('./components/ComponentesForm/DatePicker.vue'))
@@ -31,6 +44,7 @@ Vue.component('editar-component',require('./components/ComponentesForm/DataEdit.
 Vue.component('evento-component',require('./components/evento/eventos.vue'))
 Vue.component('chat-component',require('./components/evento/chat.vue'))
 const app = new Vue({
+
     el: '#main'
 });
 
