@@ -3,7 +3,7 @@
 <div class="login-box">
     <div class="login-logo">
         Sistema de Agenda Electrónica
-    </div>
+    </div> 
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">{{ __('Login') }}</p>

@@ -57,6 +57,7 @@ Route::group(['middleware' => 'cors'], function(){
 
     Route::post('upload','UploadController@store');
     Route::post('Uploadfile','EventosController@uploadfile');
+    Route::get('fileList/{id}','EventosController@FileList');
     //------------------
 
 }); 

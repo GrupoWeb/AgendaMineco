@@ -80,7 +80,7 @@ class EventosController extends Controller
         
         $query = EventosModel::join('responsables','responsable','=','id_Responsable')
                             ->select('accion','responsables.nombre as responsable','eventos.created_at','observaciones')
-                            ->where('id_evento','1')->get();
+                            ->where('id_evento',$id)->get();
 
         return response()->json($query);
     }
@@ -101,10 +101,18 @@ class EventosController extends Controller
         $user = Auth::user()->id;
         return $user;
     }
-    public function getMessages($id){       
-        $message = messages::all();
+    public function getMessages($id){
+         
 
-        return response()->json($message);
+        $mensaje = DB::table('messages')
+                        ->join('users','users.id','=','messages.user_id')
+                        ->select('messages.id','messages.message','messages.user_id','messages.evento_id','users.name')
+                        ->where('messages.evento_id',$id)
+                        ->get();
+        
+        // $message = messages::all();
+
+        return response()->json($mensaje,200);
     }
 
     public function addMessageData(Request $request){
@@ -118,11 +126,14 @@ class EventosController extends Controller
     }
 
     public function uploadfile(Request $request){
-        $modelUpload = Upload::find($request->id_file);
 
-        $modelUpload->evento_id = $request->id_evento;
+        dd($request);
+        // $modelUpload = Upload::find($request->id_file);
 
-        $modelUpload->save();
+        // $modelUpload->evento_id = $request->id_evento;
+        // $modelUpload->file_name = $request->id_file;
+
+        // $modelUpload->save();
 
         //dd($request->id_file)
 ;
@@ -132,6 +143,15 @@ class EventosController extends Controller
 
 
         //dd($uploadData);
+    }
+
+    public function FileList($id){
+        
+            $files = DB::table('uploads')
+                            ->select('file_name as name','file as url')
+                            ->where('evento_id',$id)
+                            ->get();
+            return response()->json($files, 200);
     }
 
     

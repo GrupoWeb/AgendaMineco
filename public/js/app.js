@@ -110671,7 +110671,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, "\n.el-row {\r\n  margin-bottom: 20px;\r\n  margin-left: 20px;\n}\n.chatbox {\r\n  width: 100%;\n}\n.entrante {\r\n  list-style: none;\r\n  background-color: beige;\r\n  border-radius: 10px;\r\n  padding-left: 20px;\r\n  width: 75%;\n}\n.messages {\r\n  margin-top: 5px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.chat {\r\n  width: 100%;\r\n  border: solid 1px #eee;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  padding: 10px;\n}\n.message {\r\n  border-radius: 20px;\r\n  padding: 4px 15px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n  display: inline-block;\n}\n.yours {\r\n  -webkit-box-align: start;\r\n      -ms-flex-align: start;\r\n          align-items: flex-start;\n}\n.yours .message {\r\n  margin-right: 25%;\r\n  /* background-color: #eee; */\r\n  background-color: #ece5dd;\r\n  position: relative;\n}\n.yours .message.last:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 0;\r\n  bottom: 0;\r\n  left: -7px;\r\n  height: 20px;\r\n  width: 20px;\r\n  background: #eee;\r\n  border-bottom-right-radius: 15px;\n}\n.yours .message.last:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 1;\r\n  bottom: 0;\r\n  left: -10px;\r\n  width: 10px;\r\n  height: 20px;\r\n  background: white;\r\n  border-bottom-right-radius: 10px;\n}\n.mine {\r\n  -webkit-box-align: end;\r\n      -ms-flex-align: end;\r\n          align-items: flex-end;\n}\n.mine .message {\r\n  color: #000;\r\n  margin-left: 25%;\r\n  background: #dcf8c6;\r\n  /*background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);*/\r\n  background-attachment: fixed;\r\n  position: relative;\n}\n.mine .message.last:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 0;\r\n  bottom: 0;\r\n  right: -8px;\r\n  height: 20px;\r\n  width: 20px;\r\n  background: #dcf8c6;\r\n  /*background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);*/\r\n  background-attachment: fixed;\r\n  border-bottom-left-radius: 15px;\n}\n.mine .message.last:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 1;\r\n  bottom: 0;\r\n  right: -10px;\r\n  width: 10px;\r\n  height: 20px;\r\n  background: white;\r\n  border-bottom-left-radius: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.el-row {\r\n  margin-bottom: 20px;\r\n  margin-left: 20px;\n}\n.chatbox {\r\n  width: 100%;\n}\n.userData, .userData_last{\r\n  font-size: 13px;\r\n  color:red;\r\n  display: block;\n}\n.userData{\r\n  margin-bottom: -20px !important;\n}\n.userData_last{\r\n  text-align: right;\r\n  margin-bottom: -20px !important;\n}\n.entrante {\r\n  list-style: none;\r\n  background-color: beige;\r\n  border-radius: 10px;\r\n  padding-left: 20px;\r\n  width: 75%;\n}\n.messages {\r\n  margin-top: 5px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.chat {\r\n  width: 100%;\r\n  border: solid 1px #eee;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  padding: 10px;\n}\n.message {\r\n  border-radius: 20px;\r\n  padding: 4px 15px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n  display: inline-block;\n}\n.yours {\r\n  -webkit-box-align: start;\r\n      -ms-flex-align: start;\r\n          align-items: flex-start;\n}\n.yours .message {\r\n  margin-right: 25%;\r\n  /* background-color: #eee; */\r\n  background-color: #ece5dd;\r\n  position: relative;\n}\n.yours .message.last:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 0;\r\n  bottom: 0;\r\n  left: -7px;\r\n  height: 20px;\r\n  width: 20px;\r\n  background: #eee;\r\n  border-bottom-right-radius: 15px;\n}\n.yours .message.last:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 1;\r\n  bottom: 0;\r\n  left: -10px;\r\n  width: 10px;\r\n  height: 20px;\r\n  background: white;\r\n  border-bottom-right-radius: 10px;\n}\n.mine {\r\n  -webkit-box-align: end;\r\n      -ms-flex-align: end;\r\n          align-items: flex-end;\n}\n.mine .message {\r\n  color: #000;\r\n  margin-left: 25%;\r\n  background: #dcf8c6;\r\n  /*background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);*/\r\n  background-attachment: fixed;\r\n  position: relative;\n}\n.mine .message.last:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 0;\r\n  bottom: 0;\r\n  right: -8px;\r\n  height: 20px;\r\n  width: 20px;\r\n  background: #dcf8c6;\r\n  /*background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);*/\r\n  background-attachment: fixed;\r\n  border-bottom-left-radius: 15px;\n}\n.mine .message.last:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  z-index: 1;\r\n  bottom: 0;\r\n  right: -10px;\r\n  width: 10px;\r\n  height: 20px;\r\n  background: white;\r\n  border-bottom-left-radius: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -110946,6 +110946,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -110965,10 +110985,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         desc: ""
       },
       form2: {},
-      fileList: [{
-        name: "food.jpeg",
-        url: "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
-      }],
+      fileList: [],
       DataResult: {
         created_at: ""
       },
@@ -110978,7 +110995,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       anotacion: "",
       message: "",
       id_user: "",
-      id_evento: ""
+      id_evento: "",
+      id_enviado: 1
     };
   },
   mounted: function mounted() {
@@ -110987,18 +111005,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     // invocar los métodos
     this.llenado();
     this.getResponsables();
-
+    // console.log(this.id);
     this.getChat();
+    this.getFile();
     setInterval(function () {
       _this.getChat();
     }, 1000);
   },
 
   methods: {
-    llenado: function llenado(id) {
+    llenado: function llenado() {
       var _this2 = this;
 
-      axios.get("/searchEvento/" + id).then(function (response) {
+      axios.get("/searchEvento/" + this.id).then(function (response) {
         // handle success
         _this2.DataResult = response.data;
         //console.log(response.data);
@@ -111021,18 +111040,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(error);
       });
     },
-    getChat: function getChat(id) {
+    getChat: function getChat() {
       var _this4 = this;
 
-      axios.get("/getChat/" + id).then(function (response) {
+      axios.get("/getChat/" + this.id).then(function (response) {
         _this4.Message = response.data;
         //console.log(response.data);
       }).catch(function (error) {
         console.log(error);
       });
     },
-    onSubmit: function onSubmit() {
+    getFile: function getFile() {
       var _this5 = this;
+
+      axios.get('/fileList/' + this.id).then(function (response) {
+        //console.log("dentro");
+        _this5.fileList = response.data;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+
+    onSubmit: function onSubmit() {
+      var _this6 = this;
 
       var anotacion = void 0;
       anotacion = this.textarea;
@@ -111047,7 +111077,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //$("#snoAlertBox").fadeIn();
         //closeSnoAlertBox("#snoAlertBox");
         //this.$message.warning(`El límite es 3, haz seleccionado  archivos esta vez, añade hasta `);
-        _this5.textarea = "";
+        _this6.textarea = "";
         console.log("guardado");
       }).catch(function (error) {
         console.log(error.message);
@@ -111069,7 +111099,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$message.warning("El l\xEDmite es 3, haz seleccionado " + files.length + " archivos esta vez, a\xF1ade hasta " + (files.length + fileList.length));
     },
     cargaSuccess: function cargaSuccess(response, file, fileList) {
-      var _this6 = this;
+      var _this7 = this;
 
       var id_fila = '';
       var vm = this;
@@ -111083,26 +111113,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         id_evento: this.id,
         id_file: file.uid
       }).then(function (response) {
-        _this6.$message.success("Documento Cargado");
+        _this7.$message.success("Documento Cargado");
       }).catch(function (error) {
         console.log(error.message);
       });
     },
     submitForm2: function submitForm2() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.loading = true;
       if (this.$refs.upload._data.uploadFiles.length !== 0) {
         return this.$refs.upload.submit();
       }
       return axios.post('/api/v1/news/store', this.form).then(function (response) {
-        _this7.$emit('news-data', response.data.data);
-        _this7.loading = false;
-        _this7.closeNewsForm();
-        _this7.resetForm();
+        _this8.$emit('news-data', response.data.data);
+        _this8.loading = false;
+        _this8.closeNewsForm();
+        _this8.resetForm();
       }).catch(function (error) {
-        _this7.form.errors = error.response.data.errors;
-        _this7.loading = false;
+        _this8.form.errors = error.response.data.errors;
+        _this8.loading = false;
         console.log(error.response.data);
       });
     }
@@ -111233,6 +111263,7 @@ var render = function() {
                                   attrs: {
                                     action: "/upload",
                                     name: "file[]",
+                                    data: { evento_id: _vm.id },
                                     headers: { "X-CSRF-TOKEN": _vm.csrf },
                                     "on-preview": _vm.handlePreview,
                                     "on-remove": _vm.handleRemove,
@@ -111297,7 +111328,16 @@ var render = function() {
                                           _c(
                                             "div",
                                             { staticClass: "message last" },
-                                            [_vm._v(_vm._s(chat.message))]
+                                            [
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass: "userData_last"
+                                                },
+                                                [_vm._v(_vm._s(chat.name))]
+                                              ),
+                                              _vm._v(_vm._s(chat.message))
+                                            ]
                                           )
                                         ]
                                       )
@@ -111308,7 +111348,14 @@ var render = function() {
                                           _c(
                                             "div",
                                             { staticClass: "message" },
-                                            [_vm._v(_vm._s(chat.message))]
+                                            [
+                                              _c(
+                                                "span",
+                                                { staticClass: "userData" },
+                                                [_vm._v(_vm._s(chat.name))]
+                                              ),
+                                              _vm._v(_vm._s(chat.message))
+                                            ]
                                           )
                                         ]
                                       )

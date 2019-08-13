@@ -25,13 +25,16 @@ class UploadController extends Controller
      */
     public function store(Request $request)
     {
+        
         $uploadId = array();
         if ( $files =  $request->file('file')) {
             foreach ($request->file('file') as $key => $file) {
                 $name = time() . $key . $file->getClientOriginalName();
+                $nameFile = $file->getClientOriginalName();
                 $filename = $file->move('files', $name);
                 $uploadId[] = Upload::create([
                     'file' => $name,
+                    'file_name' =>$nameFile,
                     'evento_id' => $request->evento_id])->id;
             }
         }

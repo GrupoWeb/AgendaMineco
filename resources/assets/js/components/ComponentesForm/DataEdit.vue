@@ -6,6 +6,8 @@
           <div slot="header" class="clearfix">
             <span>Documentar Evento</span>
           </div>
+
+          
           <div class="text item">
             <el-form
               ref="form"
@@ -39,8 +41,9 @@
               <el-form-item label="Archivo:">
                 <el-upload
                   class="upload-demo"
-                  action="/upload"
+                  :action="'/upload'"
                   name="file[]"
+                  :data="{'evento_id':id}"
                   :headers="{ 'X-CSRF-TOKEN': csrf}"
                   :on-preview="handlePreview"
                   :on-remove="handleRemove"
@@ -56,6 +59,7 @@
                     class="el-upload__tip"
                   >Solo archivos jpg/png con un tamaño menor de 500kb</div>
                 </el-upload>
+
 
                 <!-- <el-upload
                   class="upload-demo"
@@ -83,11 +87,13 @@
                 <div class="chat">
                   <div class="chatbox" v-for="(chat, ch) of Message" :key="ch">
                     <div v-if="chat.user_id ===  user" class="mine messages">
-                      <div class="message last">{{ chat.message}}</div>
+                      
+                      <div class="message last"><span class="userData_last">{{ chat.name }}</span>{{ chat.message}}</div>
+                      
                     </div>
 
                     <div v-else class="yours messages">
-                      <div class="message">{{ chat.message}}</div>
+                      <div class="message"><span class="userData">{{ chat.name }}</span>{{ chat.message}}</div>
                     </div>
                   </div>
                 </div>
@@ -124,6 +130,20 @@
 
 .chatbox {
   width: 100%;
+}
+
+.userData, .userData_last{
+  font-size: 13px;
+  color:red;
+  display: block;
+}
+
+.userData{
+  margin-bottom: -20px !important;
+}
+.userData_last{
+  text-align: right;
+  margin-bottom: -20px !important;
 }
 
 .entrante {
@@ -249,11 +269,7 @@ export default {
       },
       form2: {},
       fileList: [
-        {
-          name: "food.jpeg",
-          url:
-            "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
-        }
+        
       ],
       DataResult: {
         created_at: ""
@@ -264,23 +280,26 @@ export default {
       anotacion: "",
       message: "",
       id_user: "",
-      id_evento: ""
+      id_evento: "",
+      id_enviado:1
     };
   },
   mounted() {
     // invocar los métodos
     this.llenado();
     this.getResponsables();
-
+    // console.log(this.id);
     this.getChat();
+    this.getFile();
     setInterval(() => {
       this.getChat();
     }, 1000);
   },
   methods: {
-    llenado: function(id) {
+    llenado: function() {
+      
       axios
-        .get("/searchEvento/" + id)
+        .get("/searchEvento/" + this.id)
         .then(response => {
           // handle success
           this.DataResult = response.data;
@@ -307,9 +326,9 @@ export default {
           console.log(error);
         });
     },
-    getChat: function(id) {
+    getChat: function() {
       axios
-        .get("/getChat/" + id)
+        .get("/getChat/" + this.id)
         .then(response => {
           this.Message = response.data;
           //console.log(response.data);
@@ -318,6 +337,17 @@ export default {
           console.log(error);
         });
     },
+    getFile: function(){
+      axios.get('/fileList/'+ this.id)
+      .then(response =>{
+      //console.log("dentro");
+          this.fileList = response.data;
+          
+      }).catch(function(error) {
+          console.log(error);
+        });
+    }
+    ,
     onSubmit() {
       let anotacion;
       anotacion = this.textarea;

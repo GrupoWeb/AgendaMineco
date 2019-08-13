@@ -45,15 +45,17 @@
                   <a href="../bandeja" class="nav-link">
                       <i class="nav-icon fa fa-th"></i>
                       <p>
-                        Puntos Registrados
+                        REGISTROS Puntos
                       </p>
+                      <br>
+                      <p>    de Agenda</p>
                     </a>
               </li>
               <li class="nav-item">
                   <a href="../home" class="nav-link">
                       <i class="nav-icon fa fa-th"></i>
                       <p>
-                        Home
+                        Puntos de Agenda
                       </p>
                     </a>
               </li>

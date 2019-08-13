@@ -17,6 +17,7 @@ class CreateUploadsTable extends Migration
             $table->increments('id');
             $table->string('file');
             $table->integer('evento_id');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
