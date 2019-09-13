@@ -91,7 +91,7 @@ export default {
     this.DataResult;
   },
   methods: {
-    nextTick: function() {
+    nextTick: function() { 
       this.getData();
     },
     getData: function() {
